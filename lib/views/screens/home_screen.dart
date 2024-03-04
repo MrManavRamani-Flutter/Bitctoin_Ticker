@@ -1,6 +1,5 @@
 import 'package:bitctoin_ticker/helper/coin_data.dart';
 import 'package:bitctoin_ticker/views/components/crypto_card.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -12,6 +11,7 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   String selectedCurrency = 'USD';
+
   DropdownButton<String> androidDropDown() {
     List<DropdownMenuItem<String>> l = [];
     for (String current in currenciesList) {
@@ -34,32 +34,13 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
-  CupertinoPicker iOSPicker() {
-    List<Text> pickerItems = [];
-
-    for (String current in currenciesList) {
-      pickerItems.add(Text(current));
-    }
-    return CupertinoPicker(
-      backgroundColor: const Color(0xff48a9fa),
-      itemExtent: 32.0,
-      onSelectedItemChanged: (selectedIndex) {
-        print(selectedIndex);
-        setState(() {
-          selectedCurrency = currenciesList[selectedIndex];
-          getData();
-        });
-      },
-      children: pickerItems,
-    );
-  }
-
   String bitcoinValue = '?';
   String ethereumValue = '?';
   String litecoinValue = '?';
   CoinData coin = CoinData();
   bool isWaitingtoFetch = false;
   Map<String, String> coinValues = {};
+  // ignore: non_constant_identifier_names
   void getData() async {
     try {
       isWaitingtoFetch = true;
@@ -96,17 +77,20 @@ class _HomeScreenState extends State<HomeScreen> {
         children: [
           CryptoCard(
             'BTC',
-            isWaitingtoFetch ? '?' : coinValues['BTC'] as String,
+            isWaitingtoFetch ? '?' : (coinValues['BTC'] ?? '?') as String,
+            // isWaitingtoFetch ? '?' : coinValues['BTC'] as String,
             selectedCurrency,
           ),
           CryptoCard(
             'ETH',
-            isWaitingtoFetch ? '?' : coinValues['ETH'] as String,
+            isWaitingtoFetch ? '?' : (coinValues['ETH'] ?? '?') as String,
+            // isWaitingtoFetch ? '?' : coinValues['ETH'] as String,
             selectedCurrency,
           ),
           CryptoCard(
             'LTC',
-            isWaitingtoFetch ? '?' : coinValues['LTC'] as String,
+            isWaitingtoFetch ? '?' : (coinValues['LTC'] ?? '?') as String,
+            // isWaitingtoFetch ? '?' : coinValues['LTC'] as String,
             selectedCurrency,
           ),
           Container(
@@ -121,7 +105,7 @@ class _HomeScreenState extends State<HomeScreen> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                const Text(
+                Text(
                   'Scroll Down : ',
                   style: TextStyle(fontSize: 18),
                 ),

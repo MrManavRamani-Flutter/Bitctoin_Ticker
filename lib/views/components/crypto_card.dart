@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 Expanded CryptoCard(String text, String value, String selectedCurrency) {
@@ -9,7 +8,6 @@ Expanded CryptoCard(String text, String value, String selectedCurrency) {
         color: const Color(0x54579ed9),
         elevation: 0.0,
         shape: RoundedRectangleBorder(
-
           borderRadius: BorderRadius.circular(50.0),
         ),
         child: Padding(
