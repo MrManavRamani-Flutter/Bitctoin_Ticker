@@ -1,4 +1,3 @@
-import 'package:bitctoin_ticker/views/screens/home_screen.dart';
 import 'package:bitctoin_ticker/views/screens/welcome_screen.dart';
 import 'package:flutter/material.dart';
 

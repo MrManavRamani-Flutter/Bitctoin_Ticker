@@ -87,7 +87,7 @@ class _HomeScreenState extends State<HomeScreen> {
       backgroundColor: const Color(0x54579ed9),
       appBar: AppBar(
         title: const Center(
-          child: Text('Coin Ticker'),
+          child: Text('Coin Ticker '),
         ),
       ),
       body: Column(

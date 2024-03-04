@@ -48,7 +48,7 @@ class _SplashScreenState extends State<SplashScreen>
             RotationTransition(
               turns: _animationController,
               child: const Icon(
-                Icons.attach_money, // Change this to your coin icon
+                Icons.attach_money,
                 size: 100,
                 color: Colors.white,
               ),
